@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Content</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content-container">
+        <h1 style="text-align: center;">Uploaded Content</h1>
+        <div id="gallery" style="margin-top: 20px;"></div>
+    </div>
+    <script>
+        // Sample data for demonstration
+        const uploadedContent = [
+            { src: 'image1.jpg', description: 'A beautiful sunset.' },
+            { src: 'image2.jpg', description: 'Family gathering.' }
+        ];
+
+        const gallery = document.getElementById('gallery');
+
+        uploadedContent.forEach(item => {
+            const content = document.createElement('div');
+            content.className = 'uploaded-content';
+            content.innerHTML = `
+                <img src="${item.src}" style="max-width: 100%; height: auto;" />
+                <p>${item.description}</p>
+            `;
+            gallery.appendChild(content);
+        });
+    </script>
+</body>
+</html>

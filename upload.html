@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Memories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="upload-container">
+        <h1 style="text-align: center;">Upload Your Memories</h1>
+        <input type="file" id="fileInput" multiple>
+        <button class="upload-button" onclick="uploadFiles()">Upload</button>
+        <div id="gallery" style="margin-top: 20px;"></div>
+    </div>
+    <script>
+        const uploadedFiles = new Set();
+
+        function uploadFiles() {
+            const input = document.getElementById('fileInput');
+            const gallery = document.getElementById('gallery');
+            const files = input.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+
+                if (uploadedFiles.has(file.name)) {
+                    alert("This file has already been uploaded.");
+                    continue;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const content = document.createElement('div');
+                    content.className = 'uploaded-content';
+                    content.innerHTML = `
+                        <img src="${e.target.result}" style="max-width: 100%; height: auto;" />
+                        <p><textarea placeholder="Write something about this photo/video"></textarea></p>
+                    `;
+                    gallery.appendChild(content);
+                    uploadedFiles.add(file.name);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

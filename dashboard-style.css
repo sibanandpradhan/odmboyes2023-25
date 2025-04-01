@@ -1,0 +1,18 @@
+.dashboard-container {
+    background: #efdf066a; /* New background color for the dashboard */
+    border-radius: 10px; /* Optional: Add some rounding to the corners */
+}
+
+.circle-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Set a width for the button */
+    height: 50px; /* Set a height for the button */
+    border-radius: 50%; /* Make it circular */
+    background-color: #7fa2ba; /* Background color for the button */
+    color: white; /* Color of the arrow */
+    font-size: 24px; /* Size of the arrow */
+    cursor: pointer; /* Change cursor to pointer */
+    margin: 20px auto; /* Center the button horizontally */
+}
